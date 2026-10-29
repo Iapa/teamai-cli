@@ -153,7 +153,7 @@ teamai list        # see the team skills / rules / docs you now have
 
 Then tell the user: from now on, **opening a new session in this AI tool
 auto-syncs** the latest team resources — no manual step needed. If their tool has
-no session-start hook (e.g. Gemini CLI, JoyCode), they run `teamai pull` by hand.
+no session-start hook (e.g. Gemini CLI), they run `teamai pull` by hand.
 
 **Reassure them about privacy** (in their language): *"TeamAI does not send any of
 your session data to third parties. The only place anything is reported is the team

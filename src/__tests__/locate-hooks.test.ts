@@ -259,7 +259,8 @@ const ROWS: readonly (FilesRow | OtherRow)[] = [
     writes: [{ at: '~/.my-tool/settings.json', key: HOOK_LIST }], reads: 'unknown',
     source: 'a custom tool takes Claude-shaped hooks in its configured settings file, as it always has',
   },
-  { tool: 'joycode', scope: 'user', channel: 'none', existingDirs: [], installed: { probe: '~/.joycode', met: false }, source: 'JoyCode 3.8.71 source: no lifecycle hooks (—s)' },
+  settings('joycode', 'user', '~/.joycode/hooks.json', '~/.joycode', { source: 'JoyCode hooks docs: ~/.joycode/hooks.json takes Claude-shaped hooks (docs)' }),
+  selfSettings('joycode', '<root>/.joycode/hooks.json', '<root>/.joycode', 'workspaceUnder', { source: `${SELF}: <project>/.joycode/hooks.json (docs)` }),
   adapter('kiro', 'user', '~/.kiro/hooks', '~/.kiro', { source: 'Kiro CLI V3 docs: hook files in ~/.kiro/hooks load for every agent (#1341)' }),
   { tool: 'trae', scope: 'user', channel: 'unknown', existingDirs: [], installed: { probe: '~/.trae', met: false }, source: 'issue #1221 matrix: Trae hooks ?t' },
 ];

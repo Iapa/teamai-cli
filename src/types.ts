@@ -493,12 +493,10 @@ export const DEFAULT_TOOL_PATHS = {
     },
   },
   // JoyCode: skills, rules (.mdc), and subagents are synced to .joycode/.
-  // JoyCode currently does not provide a lifecycle hooks system or startup
-  // adapter, so it intentionally has no `settings` path. Hook reconciliation
-  // skips JoyCode cleanly without generating ghost files; users must sync
-  // manually via `teamai pull`. In user scope it reads no rules directory:
+  // JoyCode reads Claude-shaped lifecycle hooks from .joycode/hooks.json in
+  // the home and in a project. In user scope it reads no rules directory:
   // its team rules are a block in ~/.joycode/rules.txt (#946).
-  joycode: { skills: '.joycode/skills', rules: '.joycode/rules', agents: '.joycode/agents', userScope: { rules: null } },
+  joycode: { skills: '.joycode/skills', rules: '.joycode/rules', settings: '.joycode/hooks.json', agents: '.joycode/agents', userScope: { rules: null } },
   qoder: {
     skills: '.qoder/skills',
     rules: '.qoder/rules',
