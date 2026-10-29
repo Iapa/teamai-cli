@@ -40,6 +40,7 @@ export const ADAPTER_REGISTRY: Record<string, AdapterFactory> = {
   tclaude: (toolRoots) => new ClaudeCodeAdapter('tclaude', sessionStoreDir('tclaude', toolRoots)),
   'codex-internal': (toolRoots) => new CodexAdapter('codex-internal', sessionStoreDir('codex-internal', toolRoots)),
   tcodex: (toolRoots) => new CodexAdapter('tcodex', sessionStoreDir('tcodex', toolRoots)),
+  joycode: (toolRoots) => new CodexAdapter('joycode', sessionStoreDir('joycode', toolRoots)),
 } satisfies Record<SessionPlatform, AdapterFactory>;
 
 export function getAdapter(platform: string, toolRoots?: LocalConfig['toolRoots']): AgentAdapter {

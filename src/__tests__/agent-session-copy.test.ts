@@ -147,6 +147,7 @@ beforeEach(() => {
     ['.qoder-cn', 'projects'],
     ['.codebuddy', 'projects'],
     ['.codex', 'sessions'],
+    ['.joycode', 'sessions'],
     ['.cursor', 'projects'],
     ['.local', 'share', 'opencode'],
     ['.workbuddy', 'projects'],

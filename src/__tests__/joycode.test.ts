@@ -2,8 +2,12 @@ import { describe, expect, it } from 'vitest';
 import { KNOWN_AGENTS } from '../known-agents.js';
 import { ruleFileExtensionForTool, usesMdcRules } from '../resources/rule-format.js';
 import { scopedToolPaths, TeamaiConfigSchema } from '../types.js';
-import { AGENT_TOOLS, channelsOf } from '../tools.js';
+import { AGENT_TOOLS, channelsOf, sessionPlatformsOf } from '../tools.js';
 import { builtinHookDefs } from '../builtin-hooks.js';
+import { getAdapter } from '../session-flow/adapters/index.js';
+import { CodexAdapter } from '../session-flow/adapters/codex.js';
+import { SESSION_PLATFORM_FACTS } from '../session-flow/adapters/platform-facts.js';
+import { AgentSession } from '../session-flow/agent-session.js';
 
 describe('JoyCode support', () => {
   it('ships the standard .joycode resource paths', () => {
@@ -39,5 +43,17 @@ describe('JoyCode support', () => {
   it('uses .mdc rule files', () => {
     expect(ruleFileExtensionForTool('joycode')).toBe('.mdc');
     expect(usesMdcRules('joycode')).toBe(true);
+  });
+
+  it('supports sessions via CodexAdapter under ~/.joycode/sessions', () => {
+    expect(sessionPlatformsOf('joycode')).toEqual(['joycode']);
+    expect(AgentSession.platformForTool('joycode')).toBe('joycode');
+    expect(AgentSession.toolForPlatform('joycode')).toBe('joycode');
+    expect(SESSION_PLATFORM_FACTS.joycode).toMatchObject({
+      store: { in: 'tool-home', home: 'joycode', dir: 'sessions' },
+      idFormat: 'uuid',
+    });
+    const adapter = getAdapter('joycode');
+    expect(adapter).toBeInstanceOf(CodexAdapter);
   });
 });

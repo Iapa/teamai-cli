@@ -123,6 +123,15 @@ export const SESSION_PLATFORM_FACTS = {
     sqliteRegistrationOnWindows: false,
     idFormat: 'uuid',
   },
+  'joycode': {
+    store: { in: 'tool-home', home: 'joycode', dir: 'sessions' },
+    resume: (id) => `joycode --resume ${id}`,
+    thinking: true, images: true,
+    nativeTools: new Set(['bash', 'edit_file', 'read_file', 'write_file']),
+    legacyIdWithoutWorkspace: false,
+    sqliteRegistrationOnWindows: false,
+    idFormat: 'uuid',
+  },
   'codebuddy': {
     // CodeBuddy 2.176.0 bundle: getHomeProjectsDir() is <CODEBUDDY_CONFIG_DIR or ~/.codebuddy>/projects.
     store: { in: 'tool-home', home: 'codebuddy', dir: 'projects' },

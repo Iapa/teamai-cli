@@ -50,7 +50,7 @@ const ROWS: readonly (FilesRow | OtherRow)[] = [
   store('opencode', '~/.local/share/opencode', { env: { XDG_CONFIG_HOME: '/xdg' }, source: `${OPENCODE_SOURCE}: the config home does not move the data directory` }),
   { tool: 'copilot', scope: 'user', channel: 'none', existingDirs: [], installed: null, gates: 'none', source: 'issue #1221 matrix: Copilot keeps sessions teamai reads none of (+s)' },
   { tool: 'pi', scope: 'user', channel: 'none', existingDirs: [], installed: null, gates: 'none', source: 'Pi 0.99 dist/core/session-manager.js: JSONL under ~/.pi/agent/sessions, which teamai reads none of' },
-  { tool: 'joycode', scope: 'user', channel: 'unknown', existingDirs: [], installed: null, gates: 'none', source: 'JoyCode FAQ and changelog name no session store' },
+  store('joycode', '~/.joycode/sessions', { source: 'JoyCode: rollout JSONL under ~/.joycode/sessions (session-flow/adapters/codex.ts)' }),
   { tool: 'my-tool', scope: 'user', channel: 'unknown', existingDirs: [], installed: null, gates: 'none', source: 'a custom tool id has no descriptor' },
 ];
 
