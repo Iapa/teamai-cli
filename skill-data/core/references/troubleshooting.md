@@ -288,6 +288,13 @@ Different AI hosts handle the hooks that TeamAI injects differently. When this
 conversation runs in one of these, proactively walk the user through the extra
 step — do not assume auto-sync just works.
 
+### JoyCode Desktop
+
+Review and trust each TeamAI hook in **Settings > Hooks** before it can run.
+Until the hooks are trusted and enabled, run `teamai pull` at the start of each
+session.
+
+
 ### Codex
 
 Codex runs a non-managed hook only once it is **trusted**. `teamai init`, `pull`
